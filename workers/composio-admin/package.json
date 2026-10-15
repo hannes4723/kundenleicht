@@ -1,0 +1,34 @@
+{
+  "name": "@kundenleicht/composio-admin-worker",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "smoke:local": "vitest run test/worker.test.ts test/mcp.test.ts",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "build": "wrangler deploy --dry-run --outdir=dist",
+    "security:bundle": "node scripts/check-bundle.mjs",
+    "check": "npm run test && npm run typecheck && npm run lint && npm run build && npm run security:bundle"
+  },
+  "dependencies": {
+    "@cloudflare/workers-oauth-provider": "1.2.3",
+    "@modelcontextprotocol/server": "2.3.1",
+    "agents": "0.28.1",
+    "jose": "6.2.12",
+    "zod": "4.6.7"
+  },
+  "devDependencies": {
+    "@cloudflare/vitest-plugin": "1.4.1",
+    "@cloudflare/workers-types": "5.20261013.1",
+    "@eslint/js": "10.0.1",
+    "@types/node": "26.6.5",
+    "eslint": "10.12.0",
+    "typescript": "6.0.3",
+    "typescript-eslint": "8.71.2",
+    "vitest": "4.1.11",
+    "wrangler": "4.150.0"
+  }
+}
